@@ -18,28 +18,12 @@
 	path = local/bin
 	url = https://github.com/dune-community/local-bin.git
         ignore = untracked
-[submodule "dune-localfunctions"]
-	path = dune-localfunctions
-	url = http://github.com/dune-mirrors/dune-localfunctions.git
-        ignore = dirty
 [submodule "dune-gdt"]
 	path = dune-gdt
 	url = https://github.com/dune-community/dune-gdt.git
-[submodule "dune-istl"]
-	path = dune-istl
-	url = http://github.com/dune-mirrors/dune-istl.git
-[submodule "dune-pdelab"]
-	path = dune-pdelab
-	url = https://github.com/dune-mirrors/dune-pdelab.git
-[submodule "dune-typetree"]
-	path = dune-typetree
-	url = http://github.com/dune-mirrors/dune-typetree.git
 [submodule "configs"]
 	path = config.opts
 	url = https://github.com/dune-community/config.opts.git
-[submodule "scripts"]
-	path = scripts
-	url = https://github.com/wwu-numerik/scripts.git
 [submodule "dune-python"]
 	path = dune-python
 	url = https://github.com/dune-mirrors/dune-python.git
@@ -70,9 +54,3 @@
 [submodule "dune-uggrid"]
 	path = dune-uggrid
 	url = https://github.com/dune-mirrors/dune-uggrid.git
-[submodule "dune-functions"]
-	path = dune-functions
-	url = https://github.com/dune-mirrors/dune-functions.git
-[submodule "dune-grid-glue"]
-	path = dune-grid-glue
-	url = https://github.com/dune-mirrors/dune-grid-glue.git
