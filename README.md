@@ -129,5 +129,21 @@ cd $BASEDIR
 ./dune-common/bin/dunecontrol --opts=config.opts/$OPTS --builddir=$INSTALL_PREFIX/../build-$OPTS all
 ```
 
-This creates a directory corresponding to the selected options (e.g. `build-gcc-relwithdebinfo`) which contains a subfolder for each DUNE module.
+This creates a directory corresponding to the selected options (e.g. `arch-minimal/build-gcc-relwithdebinfo` within a Docker container or `build-gcc-relwithdebinfo`) which contains a subfolder for each DUNE module.
 
+## 4: Build the tests and examples
+
+There is currently a test in dune-gdt which is concerned with compressible flow and makes for a good starting point.
+After building all DUNE modules, enter the build directory and compile the test:
+
+```bash
+cd $BASEDIR/arch-minimal/build-gcc-relwithdebinfo
+cd dune-gdt/dune/gdt/test
+make test_hyperbolic_system_of_equations
+```
+
+You can then execute the test (this _will_ take some time) and inspect the generated files with paraview:
+
+```bash
+./test_hyperbolic_system_of_equations --gtest_catch_exceptions=0
+```
