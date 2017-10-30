@@ -14,12 +14,12 @@ viscid and inviscid compressible flow using [dune-gdt](https://github.com/dune-c
 
 * We recommend to use [docker](https://www.docker.com/) to ensure a fixed build environment.
   As a good starting point, take a look at our [Dockerfiles](https://github.com/dune-community/Dockerfiles) repository, which will guide you through the full process of working with docker and DUNE.
-  While the compiled shared objects will (most likely) not work on your computer (they only work within the build environment of the container), you will have access to a jupyter notebook server from your computer.
-* Compiler: we currently test gcc >= 4.9 and clang >= 3.8, other compilers may also work
+  The compiled shared objects and binaries will (most likely) not work on your computer, they will only work within the build environment of the container.
+* Compiler: we currently use gcc >= 7.2.0, other compilers (usually gcc >= 4.9.2 and clang >= 3.8) may also work
 * For a list of minimal (and optional) dependencies for several linux distributions, you can take a look our
   [Dockerfiles](https://github.com/dune-community/Dockerfiles) repository, e.g.,
-  [debian/Dockerfile.minimal](https://github.com/dune-community/Dockerfiles/blob/master/debian/Dockerfile.minimal)
-  for the minimal requirements on Debian jessie (and derived distributions).
+  [debian/minimal/Dockerfile](https://github.com/dune-community/Dockerfiles/blob/master/debian/minimal/Dockerfile)
+  for the minimal requirements on Debian (and derived distributions).
 
 
 # To build everything, do the following
@@ -29,7 +29,7 @@ First of all
 ## 1: checkout the repository and initialize all submodules:
 
 ```bash
-mkdir -p $HOME/Projects/dune                 # <- adapt this to your needs
+mkdir -p $HOME/Projects/dune        # <- adapt this to your needs
 cd $HOME/Projects/dune
 git clone https://github.com/ftschindler-work/compressible-ns.git
 cd compressible-ns
@@ -110,7 +110,7 @@ source PATH.sh
     echo "CMAKE_FLAGS=\"-DCMAKE_INSTALL_PREFIX=${INSTALL_PREFIX} "'${CMAKE_FLAGS}'"\"" >> config.opts/$OPTS
     ```
 
-    to set this permanently,
+    to set this permanently (recommended),
 
   - or by calling
 
@@ -118,13 +118,14 @@ source PATH.sh
     export CMAKE_FLAGS="-DCMAKE_INSTALL_PREFIX=${INSTALL_PREFIX} ${CMAKE_FLAGS}"
     ```
 
-    to set this temporarily (recommended).
+    to set this temporarily.
 
 ## 3: Build all DUNE modules
 
 Using `cmake` and the selected options (this _will_ take some time):
 
 ```bash
+cd $BASEDIR
 ./dune-common/bin/dunecontrol --opts=config.opts/$OPTS --builddir=$INSTALL_PREFIX/../build-$OPTS all
 ```
 
