@@ -1,0 +1,6 @@
+cd $HOME
+source .bashrc
+cd $HOME/compressible-ns/arch-full
+source PATH.sh
+cd dune-gdt/dune/gdt/test
+
